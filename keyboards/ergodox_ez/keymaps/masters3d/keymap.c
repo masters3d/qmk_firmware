@@ -107,7 +107,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
   }
   return true;
-}
+};
 
 
 enum combos {
@@ -115,8 +115,8 @@ enum combos {
   COMMA_SEMICOLON,
 };
 
-const uint16_t PROGMEM dot_combo[] = {KC_LSHIFT, KC_DOT, COMBO_END};
-const uint16_t PROGMEM comma_combo[] = {KC_LSHIFT, KC_COMMA, COMBO_END};
+const uint16_t PROGMEM dot_combo[] = {LSFT(KC_DOT), COMBO_END};
+const uint16_t PROGMEM comma_combo[] = {LSFT(KC_COMMA), COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [DOT_COLON] = COMBO(dot_combo, LSFT(KC_SCOLON)),
