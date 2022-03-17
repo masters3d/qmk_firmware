@@ -108,6 +108,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+
+enum combos {
+  DOT_COLON,
+  COMMA_SEMICOLON,
+};
+
+const uint16_t PROGMEM dot_combo[] = {KC_LSHIFT, KC_DOT, COMBO_END};
+const uint16_t PROGMEM comma_combo[] = {KC_LSHIFT, KC_COMMA, COMBO_END};
+
+combo_t key_combos[COMBO_COUNT] = {
+  [DOT_COLON] = COMBO(dot_combo, LSFT(KC_SCOLON)),
+  [COMMA_SEMICOLON] = COMBO(comma_combo, KC_SCOLON),
+};
+
 uint32_t layer_state_set_user(uint32_t state) {
   uint8_t layer = biton32(state);
   ergodox_board_led_off();

@@ -4,3 +4,7 @@
 */
 #define ORYX_CONFIGURATOR
 #define USB_SUSPEND_WAKEUP_DELAY 0
+
+// Enable combos
+#define COMBO_COUNT 2 // Specify the number of combos used. BE SURE TO INCREMENT AS NEEDED
+#define COMBO_TERM 50 // window in milliseconds to trigger combo
