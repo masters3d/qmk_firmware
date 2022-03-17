@@ -110,17 +110,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 };
 
 
-enum combos {
-  DOT_COLON,
-  COMMA_SEMICOLON,
-};
+// this is defined in another include.
+// #define KC_RIGHT_PAREN LSFT(KC_0) // )
+// #define KC_RPRN KC_RIGHT_PAREN
 
-const uint16_t PROGMEM dot_combo[] = {LSFT(KC_DOT), COMBO_END};
-const uint16_t PROGMEM comma_combo[] = {LSFT(KC_COMMA), COMBO_END};
+const key_override_t backspace_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+const key_override_t dot_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, LSFT(KC_SCOLON));
+const key_override_t comma_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMMA, KC_SCOLON);
+const key_override_t parens_left_override = ko_make_basic(MOD_MASK_SHIFT, LSFT(KC_9), LSFT(KC_DOT));
+const key_override_t parens_right_override = ko_make_basic(MOD_MASK_SHIFT, KC_RPRN, LSFT(KC_COMMA));
 
-combo_t key_combos[COMBO_COUNT] = {
-  [DOT_COLON] = COMBO(dot_combo, LSFT(KC_SCOLON)),
-  [COMMA_SEMICOLON] = COMBO(comma_combo, KC_SCOLON),
+// This globally defines all key overrides to be used
+const key_override_t **key_overrides = (const key_override_t *[]){
+    &backspace_override,
+    &dot_override,
+    &comma_override,
+    &parens_left_override,
+    &parens_right_override,
+    NULL // Null terminate the array of overrides!
 };
 
 uint32_t layer_state_set_user(uint32_t state) {
