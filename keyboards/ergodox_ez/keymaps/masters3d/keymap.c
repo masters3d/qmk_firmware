@@ -20,6 +20,7 @@
 #define SE_SECT_MAC ALGR(KC_6)
 
 enum custom_keycodes {
+  PLACEHOLDER = SAFE_RANGE, // can always be here
   ST_MACRO_0,
   ST_MACRO_1,
   ST_MACRO_2,
