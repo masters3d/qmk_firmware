@@ -39,7 +39,7 @@ KC_TRANSPARENT, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_TRANSPARENT,
 KC_ESCAPE, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H,
 KC_J, KC_K, KC_L, KC_DOT, KC_ENTER, TO(0), KC_Z,
 KC_X, KC_C, KC_V, KC_B, KC_TRANSPARENT, KC_TRANSPARENT, KC_N,
-KC_M, KC_J, KC_G, KC_COMMA, TO(2), KC_TRANSPARENT, RGUI(KC_Z),
+KC_M, KC_QUOTE, LSFT(KC_QUOTE), KC_COMMA, TO(2), KC_TRANSPARENT, RGUI(KC_Z),
 RGUI(KC_S), RGUI(KC_C), RGUI(KC_V), KC_LEFT, KC_DOWN, KC_UP, KC_RIGHT,
 KC_TRANSPARENT, MO(1), KC_LEFT_GUI, KC_ESCAPE, MO(1), KC_LEFT_CTRL, KC_TAB,
 KC_BACKSPACE, KC_LEFT_SHIFT, KC_LEFT_ALT, KC_RIGHT_GUI, KC_RIGHT_SHIFT, KC_SPACE
@@ -119,8 +119,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 };
 
-const key_override_t delete_override = ko_make_basic(MOD_MASK_SHIFT, KC_BACKSPACE, KC_DEL);
-const key_override_t enter_override = ko_make_basic(MOD_MASK_SHIFT, KC_SPACE, KC_ENTER);
 const key_override_t dot_override = ko_make_basic(MOD_MASK_SHIFT, KC_DOT, LSFT(KC_SCOLON));
 const key_override_t comma_override = ko_make_basic(MOD_MASK_SHIFT, KC_COMMA, KC_SCOLON);
 const key_override_t parens_left_override = ko_make_basic(MOD_MASK_SHIFT, LSFT(KC_9), LSFT(KC_COMMA));
@@ -134,8 +132,6 @@ const key_override_t quote_double_override = ko_make_basic(MOD_MASK_SHIFT, LSFT(
 
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
-    &delete_override,
-    &enter_override,
     &dot_override,
     &comma_override,
     &parens_left_override,
